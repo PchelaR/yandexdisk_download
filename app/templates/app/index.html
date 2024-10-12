@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}YandexFiles{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                {% if error %}
+                    <div class="alert alert-danger text-center m-3">
+                        {{ error }}
+                    </div>
+                {% endif %}
+                <div class="card-body">
+                    <h2 class="fw-bold mb-4 text-center">Поиск диска</h2>
+                    <p class="text-muted m-0">Введите ID публичной папки Яндекс Диска или полный URL. Например, это
+                        может быть часть ссылки, которая идет после <code>/d/</code> в URL.</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{% url 'index' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="text" name="disk_id" class="form-control" placeholder="Введите ID или URL"
+                                   required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-search"></i>
+                                Найти
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

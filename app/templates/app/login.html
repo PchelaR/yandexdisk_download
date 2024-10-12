@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Вход через Яндекс{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="fw-bold mb-4">Вход через Яндекс</h2>
+                    <p class="mb-4">Пожалуйста, войдите через свой аккаунт Яндекс, чтобы продолжить.</p>
+                    <a href="{% url 'yandex_login' %}" class="btn btn-outline-primary w-100">
+                        <i class="bi bi-person-fill"></i>
+                        Войти через Яндекс
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
